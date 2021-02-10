@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
+    <!-- styles -->
+    <style>
+        *{
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        body{
+            background-color: rgb(194, 232, 247);
+        }
+        .sidebar-toggle{
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            /* z-index: 2; */
+        }
+        .btn{
+            background: transparent;
+            border: transparent;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        .close-btn{
+            color: rgb(250, 121, 121);
+        }
+        .sidebar{
+            height: 100vh;
+            background-color: white;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+            width: 100%;
+            display: grid;
+            transition: transform 0.3s linear;
+            grid-template-rows: auto 1fr auto;
+            transform: translateX(-100%);
+        }
+        .sidebar-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        .links{
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5rem;
+        }
+        .links li{
+            margin: 1rem;
+        }
+        .social-icons{
+            margin-bottom: 1.5rem;
+            color: blue;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding-left: 0;
+        }
+        i{
+            color: blue;
+        }
+        .active{
+            transform: translateX(0);
+        }
+        .close-btn{
+            /* display: none; */
+        }
+
+
+        @media screen and (min-width: 676px)
+        {
+            .sidebar{
+                width: 400px;
+            }
+            .close-btn{
+                display: inline;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <button class="sidebar-toggle btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Coding Addict</h2>
+        <button class="close-btn btn"><i class="fas fa-times"></i></button>
+      </div>
+      <!-- links -->
+      <ul class="links">
+        <li>
+          <a href="index.html">home</a>
+        </li>
+        <li>
+          <a href="about.html">about</a>
+        </li>
+        <li>
+          <a href="projects.html">projects</a>
+        </li>
+        <li>
+          <a href="contact.html">contact</a>
+        </li>
+      </ul>
+      <!-- social media -->
+      <ul class="social-icons">
+        <li>
+          <a href="https://www.twitter.com">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com">
+            <i class="fab fa-behance"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com">
+            <i class="fab fa-sketch"></i>
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <!-- javascript -->
+    <script>
+        let toggle = document.querySelector('.sidebar-toggle');
+        let close = document.querySelector('.close-btn');
+        let sidebar = document.querySelector('.sidebar');
+
+        toggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        })
+        close.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        })
+
+    </script>
+  </body>
+</html>

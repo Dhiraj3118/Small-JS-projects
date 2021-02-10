@@ -1,0 +1,121 @@
+*,*::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: hsl(206, 85%, 92%);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 4rem;
+    border-radius: 8px;
+    transition: all 0.3s linear;
+}
+
+.main h1{
+    text-align: center;
+    margin: 1rem;
+}
+
+.alert{
+    padding: 0.25rem;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    visibility: hidden;
+    border: 2px solid black;
+}
+
+.danger{
+    background-color: rgb(245, 168, 168,0.8);
+    border: 2px solid rgb(245, 168, 168);
+    visibility: visible;
+}
+.success{
+    background-color: rgb(9, 160, 9, 0.5);
+    border: 2px solid rgb(9, 160, 9);
+    visibility: visible;
+}
+
+#grocery{
+    background-color:  hsl(210, 36%, 96%);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 1rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    width: 20rem;
+}
+
+.submit-btn{
+    padding: 1rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: hsl(205, 86%, 81%);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 6rem;
+}
+
+.clear-btn{
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 17px;
+    text-transform: capitalize;
+    color: rgb(156, 8, 8);
+    background: transparent;
+    border: transparent;
+    margin-top: 1rem ;
+    cursor: pointer;
+    display: none;    
+}
+
+.grocery-container {
+    margin-top: 1.5rem;
+    transition: all 0.3s linear;
+    visibility: hidden;
+    transition: all 0.3s linear;
+    padding: 0 2rem;
+}
+
+.show-container {
+    visibility: visible;
+}
+
+.grocery-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    padding: 0 1rem;
+    transition: all 0.3s linear;
+}
+
+.edit-btn{
+    background-color: transparent;
+    border: transparent;
+    color: green;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+.delete-btn{
+    background-color: transparent;
+    border: transparent;
+    color: rgb(209, 7, 7);
+    cursor: pointer;
+}

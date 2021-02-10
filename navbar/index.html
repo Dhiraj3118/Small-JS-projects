@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <style>
+        * {
+            margin: 0;
+        }
+        nav {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .nav-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+        .nav-toggle{
+            background: none;
+            color: blue;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s linear;
+            outline: none;
+        }
+        .nav-toggle:hover{
+            transform: rotate(90deg);
+        }
+        .links li {
+            margin: 0.5rem 1rem;
+            font-size: 1.5rem;
+        }
+        .links a {
+            transition: all 0.3s linear;
+            color: hsl(209, 34%, 30%);
+            font-size: 1rem;
+            text-transform: capitalize;
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+        .links a:hover {
+            font-weight: bold;
+            font-size: 1rem;
+            background: hsl(205, 86%, 81%);
+            color: hsl(205, 84%, 52%);
+            padding-left: 1.5rem;
+        }   
+        .social-icons{
+            display: none;
+        }
+        .links {
+            height: 0;
+            overflow: hidden;
+            transition: all 0.3s linear;
+        }
+        .show-links{
+            height: 12rem;
+        }
+        @media screen and (min-width: 800px) {
+            .nav-center {
+                max-width: 1170px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem;
+            }
+            .nav-header {
+                padding: 0;
+            }
+            .nav-toggle {
+                display: none;
+            }
+            .links {
+                height: auto;
+                display: flex;
+            }
+            .social-icons{
+                display: flex;
+            }
+            .social-icons li{
+                margin: 1rem;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-center">
+        <!-- nav header -->
+        <div class="nav-header">
+          <h2>Coding Addicts</h2>
+          <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- links -->
+        <ul class="links">
+          <li>
+            <a href="index.html">home</a>
+          </li>
+          <li>
+            <a href="about.html">about</a>
+          </li>
+          <li>
+            <a href="projects.html">projects</a>
+          </li>
+          <li>
+            <a href="contact.html">contact</a>
+          </li>
+        </ul>
+        <!-- social media -->
+        <ul class="social-icons">
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-behance"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-sketch"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <script>
+        let btn = document.querySelector('button');
+        let links = document.querySelector('.links');
+        btn.addEventListener('click', () => {
+            links.classList.toggle('show-links')
+        })
+    </script>
+  </body>
+</html>

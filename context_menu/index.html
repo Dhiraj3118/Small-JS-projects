@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context-Menu</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        #container{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #menu{
+            width: 200px;
+            height: auto;
+            background-color: black;
+            border: 2px solid black;
+            position: absolute;
+            display: none;
+            transform: scale(0);
+            transform-origin: top left;
+            transition: transform 0.3s linear;
+        }
+        #menu.active{
+            transform: scale(1);
+            display: block;
+        }
+        #menu ul{
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        #menu a{
+            padding: 0.5rem;
+            border-bottom: 1px solid black;
+            box-sizing: border-box;
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            display: inline-block;
+        }
+        #menu a:last-child{
+            border-bottom: none ;
+        }
+        #menu a:hover{
+            cursor: pointer;
+            background-color: grey;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">Right Click Here</div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="https://google.com" target="_blank">Google</a></li>
+            <li><a href="https://google.com" target="_blank">Google</a></li>
+            <li><a href="https://google.com" target="_blank">Google</a></li>
+            <li><a href="https://google.com" target="_blank">Google</a></li>
+            <li><a href="https://google.com" target="_blank">Google</a></li>
+        </ul>
+    </div>
+
+    <script>
+        let container = document.querySelector('#container');
+        let contextMenu = document.querySelector('#menu')
+        container.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            contextMenu.classList.add('active');
+            contextMenu.style.left = e.pageX + 'px';
+            contextMenu.style.top = e.pageY + 'px';
+        })
+        window.addEventListener('click', () => contextMenu.classList.remove('active'));
+    </script>
+</body>
+</html>
