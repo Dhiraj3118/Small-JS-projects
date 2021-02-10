@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 - Typewriter Text</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: indigo;
+            color: white;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const text = ["Hello I am Dhiraj","Hello I am Dhiraj Narsinghani","Hello I am Dhiraj Naresh Narsinghani"]
+        let string = 0;
+        let index = 0;
+
+        function writeText(){
+            // document.body.innerText = text.slice(0, index);
+            document.body.innerText = text[string].slice(0, index);
+            index++;
+            // if(index > text.length - 1)
+            if(index > text[string].length )
+            {
+                index = 0;
+                string = (string + 1) % 3;
+            }
+        }
+
+        setInterval(() => {
+            writeText();
+        }, 100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 8 - Carousel</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .carousal{
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .image-container{
+            display: flex;
+            transition: transform 0.3s linear;
+        }
+        img{
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousal">
+        <div class="image-container" id="imgContainer">
+            <img src="1.webp" alt="Image Carousel">
+            <img src="2.webp" alt="Image Carousel">
+            <img src="3.webp" alt="Image Carousel">
+            <img src="4.webp" alt="Image Carousel">
+        </div>
+    </div>
+    <script>
+        const imgContainer = document.getElementById('imgContainer');
+        const images = document.getElementsByTagName('img');
+        let index = 0;
+        function run(){
+            index++;
+
+            if(index >= images.length)
+            {
+                index = 0;
+            }
+
+            imgContainer.style.transform = `translateX(${-index*500}px)`;
+        }
+
+        setInterval(run, 1500);
+    </script>
+</body>
+</html>

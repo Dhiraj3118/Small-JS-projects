@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 9 - Sound Board</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgb(245, 179, 179);
+        }
+        .btn{
+            background-color: rgb(252, 81, 81);
+            color: white;
+            padding: 1rem;
+            font-size: 1.5rem;
+            margin: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <audio src="sounds/applause.mp3" id="applause"></audio>
+    <audio src="sounds/boo.mp3" id="boo"></audio>
+    <audio src="sounds/gasp.mp3" id="gasp"></audio>
+    <audio src="sounds/tada.mp3" id="tada"></audio>
+    <audio src="sounds/victory.mp3" id="victory"></audio>
+    <audio src="sounds/wrong.mp3" id="wrong"></audio>
+
+    <script>
+        const sounds = [
+            'applause',
+            'boo', 
+            'gasp',
+            'tada',
+            'victory',
+            'wrong'
+        ]
+        sounds.forEach(sound => {
+            const btn = document.createElement('button');
+            btn.classList.add('btn');
+            btn.innerText = sound;
+            btn.addEventListener('click', () => {
+                stopAudio();
+                let audio = document.getElementById(sound);
+                audio.currentTime = 0;
+                audio.play();
+            })
+            document.body.appendChild(btn);
+        });
+         function stopAudio()
+         {
+            sounds.forEach(sound => {
+                document.getElementById(sound).pause();
+            })
+         }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 6 - Background Changer</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .btn{
+            background-color: rbga(0, 0, 0, 0.2);
+            padding: 1rem;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.4rem;
+            outline: none;
+        }
+        .btn:active{
+            box-shadow: 0;
+            transform: translate(2px, 2px);
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Change Me</button>
+    <script>
+        let button = document.querySelector('.btn');
+        button.addEventListener('click', () => {
+            let color = randomBg();
+            document.body.style.background = color;
+            button.style.color = color;
+        })
+
+        function randomBg()
+        {
+            return `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
+        }
+    </script>
+</body>
+</html>

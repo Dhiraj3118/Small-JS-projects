@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2 - Notif Toast</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .notifBox{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+        .notifs{
+            background-color: purple;
+            padding: 2rem;
+            color: white;
+            border-radius: 5px;
+            margin: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <button>Click Me</button>
+    <div class="notifBox"></div>
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', () => {
+            createNotification();
+        })
+
+        function createNotification()
+        {
+            const notif = document.createElement('div');
+            notif.classList.add('notifs');
+            notif.innerText = "This is toast"
+            document.querySelector('.notifBox').appendChild(notif);
+
+            setTimeout(() => {
+                notif.remove();
+            }, 3000);
+        }
+
+    </script>
+</body>
+</html>

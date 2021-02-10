@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 5 - Heart Rain</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .heart{
+            color: pink;
+            position: fixed;
+            top: -1vh;
+            transform: translateY(0) scale(2);
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall{
+            to{
+                transform: translateY(105vh) scale(2); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello Poppers</h1>
+    <script>
+        function createHeart()
+        {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = '♥';
+
+            heart.style.left = (Math.random() * 100) + 'vw';
+            heart.style.animationDuration = (Math.random() * 2) + 3 + 's';
+            
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
